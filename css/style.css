@@ -1,0 +1,41 @@
+.form-group label {
+    font-size: 18pt;
+    font-weight: 300;
+}
+
+.clear {
+    clear: both;
+}
+
+.round {
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+
+    border: 2px solid #eeeeee;
+}
+
+.round input[type="submit"]{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.username {
+    color: #ffffff;
+}
+
+.profilepic
+{
+    float:right;
+    width:200px;
+    height:250px;
+    border-radius:7px;
+    border:solid white 1px;
+    vertical-align: middle;
+}
+.profilepic img
+{
+    width:200px;
+    height:200px;
+    border-radius:7px;
+}
