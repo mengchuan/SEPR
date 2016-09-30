@@ -5,6 +5,8 @@ if (version_compare(PHP_VERSION, '7.0.0') < 0) {
 
 include("config.php");
 include INCLUDES."login.php";
+include INCLUDES."addmsg.php";
+
 include INCLUDES."header.php";
 
 include isset($_GET['page']) ? "pages/" . $_GET['page'] : "pages/home.php";

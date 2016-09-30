@@ -1,24 +1,27 @@
 <?php  
 
- require_once("/db.php");
+ require_once(INCLUDES."/db.php");
+if (isset($_POST["function"])) {
+    if ($_POST["function"] == "addmsg") {
  $con = connectDatabase();
  
- session_start();
+ //session_start();
  $username = $_SESSION['username'];
  $content = $_POST['content'];
  
- $username = mysql_real_escape_string ($username);
- $content = mysql_real_escape_string ($content);
+ $username = mysqli_real_escape_string($con, $username);
+ $content = mysqli_real_escape_string($con, $content);
 
 if(@$_POST['submit']){  
     $sql="INSERT INTO sepr.comments (`username`, `context`) VALUES ('$username','$content')";
    
    if(mysqli_query($con,$sql)){
-      echo '<script>window.location.href="../index.php";</script> ';
+      $message = "Successfully added comment.";
 } else {
-    echo '<script type="text/javascript"> alert("sorry! failed to add data")</script>';
-	echo '<script>window.location.href="../index.php";</script> ';
+    $message = "Error, can not successfully add the comment.";
 }
 }     
+	}
+}
   
 ?> 

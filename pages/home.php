@@ -79,7 +79,7 @@ else {
 		<div class="profilepic">
 			<img src="<?php echo $pic ?>" />
 			<?php
-				include("/includes/addPicture.php");
+				include(INCLUDES."/addPicture.php");
 				if(isset($_FILES['Photo']))
 				{
 					if(empty($_FILES['Photo']['name']))
@@ -171,9 +171,11 @@ else {
 	if(isset($_SESSION["username"])){// if logged in
 ?>
 	<br/>
-	<form action="/sepr/includes/addmsg.php"  method="post" name = "myform" onsubmit="return CheckPost();">  
+	<form method="post" name = "myform" onsubmit="return CheckPost();">  
 	<br/>	content:<br/><textarea  name="content" cols="60" rows="9" ></textarea><br/>  
+		<input type="hidden" name="function" value="addmsg">
 		<input type="submit" name="submit" value="submit" />  
+		
 	</form>
 <?php	
 }
