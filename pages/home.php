@@ -4,7 +4,7 @@
 </div>
 
 <?php
-if (!isset($_SESSION["username"])) { // if logged in
+if (!isset($_SESSION["username"])) { // if not logged in
 ?>
 <div class="col-sm-4">
     <div class="col-xs-12 form-group round">
@@ -101,7 +101,7 @@ else {
 							echo "Incorrect file type. Allowed: ";
 							echo implode(', ', $allowed);
 							}
-					} 
+					}
 				}
 			?>
 			
@@ -115,6 +115,28 @@ else {
     </div>
         <a href="?logout=true" style="padding-bottom:20px;display: block;">Log out</a>
 </div>
+</br>
+<div>
+	<form method="post" name="send" >
+		<div class="loginBox">
+			<div class="loginBoxCenter">
+				<p><label for="username">Input Your Old Password&#58;</label></p>
+                <p><input type="password"  name="oldpassword" autofocus="autofocus" required="required" autocomplete="off" 
+				placeholder="Old Password " value="" /></p>
+                <p><label for="username">Input Your New Password &#58;</label></p>
+				<p><input type="password"  name="newpassword" required="required" autocomplete="off" 
+				placeholder="New Password " value="" /></p>
+                <p><label for="username">Input Your New Password Again&#58;</label></p>
+				<p><input type="password"  name="newpasswordc" required="required" autocomplete="off" 
+				placeholder="New Password confirmation" value="" /></p>
+				<input type="hidden" name="function" value="changepassword">
+				<input type="submit" name="submit" value="Change Password" />
+				<br />
+			</div>
+		</div>
+	</form>
+</div>
+</br>
     <?php 
     } 
     ?>
@@ -174,8 +196,7 @@ else {
 	<form method="post" name = "myform" onsubmit="return CheckPost();">  
 	<br/>	content:<br/><textarea  name="content" cols="60" rows="9" ></textarea><br/>  
 		<input type="hidden" name="function" value="addmsg">
-		<input type="submit" name="submit" value="submit" />  
-		
+		<input type="submit" name="submit" value="submit" />
 	</form>
 <?php	
 }
@@ -185,7 +206,7 @@ else {
 <script language="text/javascript">  
 function CheckPost()  
 {  
-    if (myform.userName.value=="")  
+    if (myform.userName.value=="")
     {  
         alert("please fill the username");  
         myform.user.focus();  
@@ -205,4 +226,4 @@ function CheckPost()
     }  
       
 }  
-</script>  
+</script>

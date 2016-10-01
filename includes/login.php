@@ -65,7 +65,7 @@ if (isset($_POST["function"])) {
 		  //header('Location:registration.html');
 		  $message = "Username already exists.";
 		}
-	  else{
+		else{
 			if($password1 != $password2){
 				$message =  "Your passwords do not match.";
 				//header('Location: registration.html');
