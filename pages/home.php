@@ -107,36 +107,35 @@ else {
 			
 			<form action="" method="post" enctype="multipart/form-data">
 				<input type="file" name="Photo"></input>
-				<input type="Submit" value="Submit"></input>
+				<input type="Submit" class="btn btn-info" value="Submit"></input>
 			</form>
-			
+			<a href="?logout=true" style="padding-bottom:20px;display: block; clear: both;">Log out</a>
 		</div>
 		
     </div>
-        <a href="?logout=true" style="padding-bottom:20px;display: block;">Log out</a>
-</div>
-</br>
-<div>
+    <div class="col-xs-12 round">
 	<form method="post" name="send" >
+        <h3>Change password</h3>
 		<div class="loginBox">
 			<div class="loginBoxCenter">
 				<p><label for="username">Input Your Old Password&#58;</label></p>
-                <p><input type="password"  name="oldpassword" autofocus="autofocus" required="required" autocomplete="off" 
+                <p><input class="form-control" type="password"  name="oldpassword" autofocus="autofocus" required="required" autocomplete="off" 
 				placeholder="Old Password " value="" /></p>
                 <p><label for="username">Input Your New Password &#58;</label></p>
-				<p><input type="password"  name="newpassword" required="required" autocomplete="off" 
+				<p><input class="form-control" type="password"  name="newpassword" required="required" autocomplete="off" 
 				placeholder="New Password " value="" /></p>
                 <p><label for="username">Input Your New Password Again&#58;</label></p>
-				<p><input type="password"  name="newpasswordc" required="required" autocomplete="off" 
+				<p><input class="form-control" type="password"  name="newpasswordc" required="required" autocomplete="off" 
 				placeholder="New Password confirmation" value="" /></p>
 				<input type="hidden" name="function" value="changepassword">
-				<input type="submit" name="submit" value="Change Password" />
+				<input class="btn btn-info" type="submit" name="submit" value="Change Password" />
 				<br />
 			</div>
 		</div>
 	</form>
+    </div>    
 </div>
-</br>
+
     <?php 
     } 
     ?>

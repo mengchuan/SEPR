@@ -13,6 +13,8 @@
     border-radius: 30px;
 
     border: 2px solid #eeeeee;
+    padding: 0 10px 10px 10px 10px;
+    margin-bottom: 20px;
 }
 
 .round input[type="submit"]{
@@ -28,7 +30,6 @@
 {
     float:right;
     width:200px;
-    height:250px;
     border-radius:7px;
     border:solid white 1px;
     vertical-align: middle;
