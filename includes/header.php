@@ -49,13 +49,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="?page=home.php">SEPR</a>
+                <a class="navbar-brand" href="?page=home">SEPR</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="?page=about.php">About</a>
+                        <a href="?page=about">About</a>
                     </li>
 
                     <?php
@@ -63,7 +63,7 @@
                                 if ($_SESSION["accesslevel"] > 0) {
                     ?>
                     <li>
-                        <a href="?page=administration.php">Administration</a>
+                        <a href="?page=administration">Administration</a>
                     </li>
                     <?php
                                 }

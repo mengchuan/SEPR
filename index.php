@@ -10,7 +10,7 @@ include INCLUDES."changepassword.php";
 
 include INCLUDES."header.php";
 
-include isset($_GET['page']) ? "pages/" . $_GET['page'] : "pages/home.php";
+include isset($_GET['page']) ? "pages/" . $_GET['page'].".php" : "pages/home.php";
 
 include INCLUDES."footer.php";
 ?>
