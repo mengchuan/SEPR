@@ -26,12 +26,17 @@ if (isset($_POST["function"])) {
 		
 		$hash = hash('sha256', $row['salt'] . hash('sha256', $password) );
         if($hash == $row['password']){
-            $message = "Logged in succesfully";
-            $_SESSION["username"] = $_POST["username"];
-			$_SESSION["avatar"] = $row['avatar'];
-			$_SESSION["accesslevel"] = $row['accesslevel'];
-			if ($_SESSION["accesslevel"] > 0) {
-				header('Location: ?page=administration');
+			if ($row['accesslevel'] < 0){
+				$message = "You are banned";
+			}
+			else {
+				$message = "Logged in succesfully";
+				$_SESSION["username"] = $_POST["username"];
+				$_SESSION["avatar"] = $row['avatar'];
+				$_SESSION["accesslevel"] = $row['accesslevel'];
+				if ($_SESSION["accesslevel"] > 0) {
+					header('Location: ?page=administration');
+				}
 			}
         }
         else {

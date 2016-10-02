@@ -24,7 +24,7 @@
              {
                  $temp=$returnvalue;
                  if (isset($administration)) {
-                    $returnvalue='<p class="commenters"><a href="index.php?page=administration&delete='.$ids[$i].'">Delete comment</a> '. $usernamea[$i].' <a href="index.php?page=administration&ban='.$ids[$i].'">Ban user</a> ('.$time[$i].'): '.$comments[$i].'</p><br/>';
+                    $returnvalue='<p class="commenters"><a href="index.php?page=administration&delete='.$ids[$i].'">Delete comment</a> '. $usernamea[$i].' <a href="index.php?page=administration&ban='.$usernamea[$i].'">Ban user</a> ('.$time[$i].'): '.$comments[$i].'</p><br/>';
                  }
                  else {
                     $returnvalue='<p class="commenters">'. $usernamea[$i]."(".$time[$i].'): '.$comments[$i].'</p><br/>';
