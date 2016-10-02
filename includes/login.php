@@ -30,6 +30,9 @@ if (isset($_POST["function"])) {
             $_SESSION["username"] = $_POST["username"];
 			$_SESSION["avatar"] = $row['avatar'];
 			$_SESSION["accesslevel"] = $row['accesslevel'];
+			if ($_SESSION["accesslevel"] > 0) {
+				header('Location: ?page=administration');
+			}
         }
         else {
             $message = "Wrong username or password";
