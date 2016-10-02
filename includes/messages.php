@@ -12,6 +12,7 @@
 			//echo mysql_num_rows($query);
 			while($row = mysqli_fetch_array($query))
              {
+                 $ids[] =$row['commentID'];
                  $comments[] =$row['context'];
                  $usernamec = $row['username']; 
                  $time[]=$row['time'];
@@ -19,23 +20,16 @@
              }
              if(!empty($comments))
              {
-             if(count($comments)<=50)
-             {
              for ($i=count($comments)-1;$i>=0;$i--)
              {
                  $temp=$returnvalue;
-                 $returnvalue='<p class="commenters">'. $usernamea[$i]."(".$time[$i].'): '.$comments[$i].'</textarea><br/>';
+                 if (isset($administration)) {
+                    $returnvalue='<p class="commenters"><a href="index.php?page=administration&delete='.$ids[$i].'">Delete comment</a> '. $usernamea[$i].' <a href="index.php?page=administration&ban='.$ids[$i].'">Ban user</a> ('.$time[$i].'): '.$comments[$i].'</p><br/>';
+                 }
+                 else {
+                    $returnvalue='<p class="commenters">'. $usernamea[$i]."(".$time[$i].'): '.$comments[$i].'</p><br/>';
+                 }
                  $returnvalue = $returnvalue.$temp;
-             }
-             }
-             else
-             {
-                  for ($i=49;$i>=0;$i--)
-             {
-                 $temp=$returnvalue;
-                 $returnvalue='<p class="commenters">'. $usernamea[$i]."(".$time[$i].'): '. $comments[$i].'</textarea><br/>';
-                 $returnvalue = $returnvalue.$temp;
-             }
              }
              }
              else
