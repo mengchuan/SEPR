@@ -9,8 +9,8 @@ if (isset($_POST["function"])) {
 		 $username = $_SESSION['username'];
 		 $content = $_POST['content'];
 		 
-		 $username = mysqli_real_escape_string($con, $username);
-		 $content = mysqli_real_escape_string($con, $content);
+		 $username = strip_tags(mysqli_real_escape_string($con, $username));
+		 $content = strip_tags(mysqli_real_escape_string($con, $content));
 
 		if(@$_POST['submit']){  
 			$sql="INSERT INTO sepr.comments (`username`, `context`) VALUES ('$username','$content')";
