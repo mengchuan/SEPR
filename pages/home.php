@@ -7,6 +7,7 @@
 <?php
 if (!isset($_SESSION["username"])) { // if not logged in
 ?>
+<script type="text/javascript" src="includes/validation.js"></script>
 <div class="col-sm-4">
     <div class="col-xs-12 form-group round">
         <h3>Login</h3>
@@ -33,39 +34,62 @@ if (!isset($_SESSION["username"])) { // if not logged in
 
     <div class="col-xs-12 form-group round">
         <h3>Register</h3>
-        <form method="post">
-            <div class="col-xs-5">
-                <label for="usr">Username:</label>
-            </div>
-            <div class="col-xs-7">
-                <input name="username" type="text" class="form-control" id="usr">
-            </div>
-
-            <div class="col-xs-5 clear">
-                <label for="pwd1">Password:</label>
-            </div>
-            <div class="col-xs-7">
-                <input name="password1" type="password" class="form-control" id="pwd1">
-            </div>
-
-            <div class="col-xs-5 clear">
-                <label for="pwd2">Again:</label>
-            </div>
-            <div class="col-xs-7">
-                <input name="password2" type="password" class="form-control" id="pwd2">
+        <form method="post" onsubmit = "return validateForm();">
+			<div class = "row">
+				<div class="col-xs-5">
+					<label for="usr">Username:</label>
+				</div>
+				<div class="col-xs-7">
+					<input name="username" type="text" class="form-control" id="user" onblur="validateName();">
+				</div>
+			</div>
+			<div class = "row">
+				<label id="usernamePrompt"></label>
+			</div>
+			
+			<div class = "row">
+				<div class="col-xs-5 clear">
+					<label for="pwd1">Password:</label>
+				</div>
+				<div class="col-xs-7">
+					<input name="password1" type="password" class="form-control" id="pwd1" onblur="validatePassword();">
+				</div>
+			</div>
+			<div class = "row">
+				<label id="passwordPrompt"></label>
+			</div>
+			
+			<div class = "row">
+				<div class="col-xs-5 clear">
+					<label for="pwd2">Again:</label>
+				</div>
+				<div class="col-xs-7">
+					<input name="password2" type="password" class="form-control" id="pwd2" onblur="validatePassword2();">
+				</div>
+			</div>
+			<div class="row">
+                <label id="password2Prompt"></label>
             </div>
 			
-			<div class="col-xs-5 clear">
-                <label for="pwd2">Email:</label>
-            </div>
-            <div class="col-xs-7">
-                <input name="email" type="text" class="form-control" id="email">
+			<div class = "row">
+				<div class="col-xs-5 clear">
+					<label for="pwd2">Email:</label>
+				</div>
+				<div class="col-xs-7">
+					<input name="email" type="text" class="form-control" id="email" onblur="validateEmail();">
+				</div>
+			</div>
+			<div class="row">
+                <label id="emailPrompt"></label>
             </div>
 
             <div class="col-xs-6">
                 <input type="hidden" name="function" value="register">
                 <input type="submit" class="btn btn-info" value="Register">
             </div>
+			<div class = "row">
+				<label id = "submitPrompt"></label>
+			</div>
         </form>
     </div>
     <?php
@@ -78,7 +102,7 @@ else {
     <div class="col-xs-12 round">
         <h3>Welcome <?= $username ?></h3>
 		<div class="profilepic">
-			<img src="<?php echo $pic ?>" />
+			
 			<?php
 				include(INCLUDES."/addPicture.php");
 				if(isset($_FILES['Photo']))
@@ -97,6 +121,8 @@ else {
 							{
 								//upload file
 							change_profile_image($username,$tmpName,$file_ext);
+							//echo '<img src = '+ $_SESSION["avatar"]+ '/>';
+							//having problems when trying to reload page as we have output on line 79
 							}
 						else {
 							echo "Incorrect file type. Allowed: ";
@@ -105,7 +131,7 @@ else {
 					}
 				}
 			?>
-			
+			<img src="<?php echo $pic ?>" />
 			<form action="" method="post" enctype="multipart/form-data">
 				<input type="file" name="Photo"></input>
 				<input type="Submit" class="btn btn-info" value="Submit"></input>

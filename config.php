@@ -1,6 +1,6 @@
 <?php
 define('INCLUDES', dirname(dirname(__FILE__))."/SEPR/includes/");
-define('IMAGES', dirname(dirname(__FILE__))."/sepr/Images/"); 
+define('IMAGES', dirname(dirname(__FILE__))."/sepr/Images/Profiles/"); 
 define('DB_NAME', 'sepr');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
