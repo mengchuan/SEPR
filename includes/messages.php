@@ -40,7 +40,7 @@
 	<br/>
 	<form method="post" name = "myform" onsubmit="return CheckPost();">  
 	<br/>	content:<br/><textarea  name="content" cols="60" rows="9" ></textarea><br/>  
-		<input type="hidden" name="function" value="addmsg">
+		<input type="hidden" name="function" value="addmsg" >
 		<input type="submit" name="submit" value="submit" />
 	</form>
 <?php	

@@ -141,19 +141,19 @@ else {
 		
     </div>
     <div class="col-xs-12 round">
-	<form method="post" name="send" >
+	<form method="post" name="send" onsubmit = "return validateForm(); >
         <h3>Change password</h3>
 		<div class="loginBox">
 			<div class="loginBoxCenter">
 				<p><label for="username">Input Your Old Password&#58;</label></p>
                 <p><input class="form-control" type="password"  name="oldpassword" autofocus="autofocus" required="required" autocomplete="off" 
-				placeholder="Old Password " value="" /></p>
+				placeholder="Old Password " value="" onblur="validatePassword(); /></p>
                 <p><label for="username">Input Your New Password &#58;</label></p>
 				<p><input class="form-control" type="password"  name="newpassword" required="required" autocomplete="off" 
-				placeholder="New Password " value="" /></p>
+				placeholder="New Password " value="" onblur="validatePassword(); /></p>
                 <p><label for="username">Input Your New Password Again&#58;</label></p>
 				<p><input class="form-control" type="password"  name="newpasswordc" required="required" autocomplete="off" 
-				placeholder="New Password confirmation" value="" /></p>
+				placeholder="New Password confirmation" value="" onblur="validatePassword2();/></p>
 				<input type="hidden" name="function" value="changepassword">
 				<input class="btn btn-info" type="submit" name="submit" value="Change Password" />
 				<br />
