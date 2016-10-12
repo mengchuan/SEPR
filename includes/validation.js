@@ -67,11 +67,53 @@ function validatePassword2(){
 
 }
 
+function validatePass()
+{
+	var oldpass=document.getElementById('oldpwd').value;
+	var newpass=document.getElementById('newpwd').value;
+	var newpass2=document.getElementById('newpwd2').value;
+	var reg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+	/*if(!checkLength(oldpass) || !checkLength(newpass) || !checkLength(newpass2))
+	{
+		producePrompt('Password should be between 1 and 25 characters long','changePasswordPrompt','red');
+		return false;
+	}*/
+	if(!oldpass.match(reg) || !newpass.match(reg) || !newpass2.match(reg))
+	{
+		producePrompt('Password must be at least 8 characters long and must contain at least 1 upper case, 1 lower case and 1 digit','changePasswordPrompt','red');
+		return false;
+	}
+	if(newpass2 != newpass)
+	{
+		producePrompt('Passwords do not match','changePasswordPrompt','red');
+		return false;
+	}
+	producePrompt('Correct input','changePasswordPrompt','green');
+	return true;
+}
+
+function checkLength(input)
+{
+	if(input.length >=1 && input <=25)
+	{
+		return true;
+	}
+	else{return false;}
+}
+
+function validateChangeForm()
+{
+	if(!validatePass())
+	{
+		return false;
+	}
+	return true;
+}
+
 function producePrompt(message, promptlocation,color){
     document.getElementById(promptlocation).innerHTML = message;
     document.getElementById(promptlocation).style.color = color;
 }
-
 
 function validateForm(){
     if(!validateName()||!validatePassword() || !validatePassword2() || !validateName()){

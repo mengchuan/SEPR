@@ -13,7 +13,7 @@ if (isset($_POST["function"])) {
 		 $content = strip_tags(mysqli_real_escape_string($con, $content));
 
 		if(@$_POST['submit']){  
-			$sql="INSERT INTO sepr.comments (`username`, `context`) VALUES ('$username','$content')";
+			$sql="INSERT INTO comments (`username`, `context`) VALUES ('$username','$content')";
 		   
 		   if(mysqli_query($con,$sql)){
 			  $message = "Successfully added comment.";

@@ -1,4 +1,5 @@
 <div class="col-sm-8 text-center">
+<script type="text/javascript" src="includes/validation.js"></script>
     <h1>SEPR incredible website</h1>
     <p>hello this is our SEPR page.</p>
     <?php include INCLUDES."messages.php" ?>
@@ -141,26 +142,30 @@ else {
 		
     </div>
     <div class="col-xs-12 round">
-	<form method="post" name="send" onsubmit = "return validateForm(); >
+	<form method="post" name="send" onsubmit = "return validateChangeForm();" >
         <h3>Change password</h3>
-		<div class="loginBox">
-			<div class="loginBoxCenter">
-				<p><label for="username">Input Your Old Password&#58;</label></p>
-                <p><input class="form-control" type="password"  name="oldpassword" autofocus="autofocus" required="required" autocomplete="off" 
-				placeholder="Old Password " value="" onblur="validatePassword(); /></p>
-                <p><label for="username">Input Your New Password &#58;</label></p>
-				<p><input class="form-control" type="password"  name="newpassword" required="required" autocomplete="off" 
-				placeholder="New Password " value="" onblur="validatePassword(); /></p>
-                <p><label for="username">Input Your New Password Again&#58;</label></p>
-				<p><input class="form-control" type="password"  name="newpasswordc" required="required" autocomplete="off" 
-				placeholder="New Password confirmation" value="" onblur="validatePassword2();/></p>
+		<div class= "loginBox">
+			<div class="loginBoxCenter" >
+				<p><label for="oldpwd">Input Your Old Password&#58;</label></p>
+                <p><input class="form-control" type="password"  name="oldpassword" id="oldpwd" autofocus="autofocus" required="required" autocomplete="off" 
+				placeholder="Old Password " value="" onblur="validatePass();" /></p>
+                <p><label for="newpwd">Input Your New Password &#58;</label></p>
+				<p><input class="form-control" type="password"  name="newpassword" id="newpwd" required="required" autocomplete="off" 
+				placeholder="New Password " value="" onblur="validatePass();" /></p>
+                <p><label for="newpwd2">Input Your New Password Again&#58;</label></p>
+				<p><input class="form-control" type="password"  name="newpasswordc" id="newpwd2" required="required" autocomplete="off" 
+				placeholder="New Password confirmation" value="" onblur="validatePass();"/></p>
+				<div class="row">
+					<label id="changePasswordPrompt"></label>
+				</div>
 				<input type="hidden" name="function" value="changepassword">
 				<input class="btn btn-info" type="submit" name="submit" value="Change Password" />
 				<br />
 			</div>
 		</div>
 	</form>
-    </div>    
+    </div>
+		
 </div>
 
     <?php 
