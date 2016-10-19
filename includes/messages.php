@@ -5,7 +5,9 @@
 			$username="";
 			$temp="";
 			
-			$query_string = "select * from `comments`";
+			//$query_string = "select * from `comments`";
+			//updated it so you can also check access level, so only users with higher access level can delete another user's comments.
+			$query_string = "select comments.*,accesslevel from comments inner join users where comments.username = users.username";
 			// this part is going to get the comments from the database.
 			$query = mysqli_query($con,$query_string) or die(mysql_error());
 			
@@ -16,6 +18,7 @@
                  $comments[] =$row['context'];
                  $usernamec = $row['username']; 
                  $time[]=$row['time'];
+				 $access[] = $row['accesslevel'];
                  $usernamea[]=$usernamec;
              }
              if(!empty($comments))
@@ -23,7 +26,7 @@
              for ($i=count($comments)-1;$i>=0;$i--)
              {
                  $temp=$returnvalue;
-                 if (isset($administration)) {
+                 if (isset($administration) && $_SESSION["accesslevel"] > $access[$i]) {
                     $returnvalue='<p class="commenters"><a href="index.php?page=administration&delete='.$ids[$i].'">Delete comment</a> '. $usernamea[$i].' <a href="index.php?page=administration&ban='.$usernamea[$i].'">Ban user</a> ('.$time[$i].'): '.$comments[$i].'</p><br/>';
                  }
                  else {
